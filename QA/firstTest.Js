@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe';
 import selectors from './selectors'
 
+//Add username and password
 const user = 'username'
 const password = 'password'
 
