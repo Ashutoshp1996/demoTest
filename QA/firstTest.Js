@@ -2,8 +2,8 @@ import { Selector } from 'testcafe';
 import selectors from './selectors'
 
 //Add username and password
-const user = 'username'
-const password = 'password'
+const user = 'ashutosh3120@gmail.com'
+const password = 'Ashu12345'
 
 fixture('Getting Started')
     .page('https://trello.com/login');
@@ -11,35 +11,47 @@ fixture('Getting Started')
 
 test('My first test', async t => {
     //Login to the application
+
     await t
-        .typeText(selectors.userName, user)
+        .typeText(selectors.userNameField, user)
         .click(selectors.continueButton)
-        .typeText(password, password)
-        .click(loginButton)
+        .typeText(selectors.passwordField, password)
+        .click(selectors.loginButton)
     //Click on the Add button
-    await t.expect(addButton.visible).ok({timeout: 200000})
+    await t.expect(selectors.addButton.visible).ok({timeout: 200000})
     await t
-        .click(addButton)
-        .click(addBoardButton)
-        .typeText(boardTitle, 'Test Board')
-        .click(createButton)
+        .click(selectors.addButton)
+        .click(selectors.addBoardButton)
+        .typeText(selectors.boardTitle, 'Test Board')
+        .click(selectors.createButton)
 
     //Now add lists
     await t
-        .typeText(listName, 'List_A')
-        .click(addListButton)
-        .typeText(listName, 'List_B')
-        .click(addListButton)
+        .typeText(selectors.listName, 'List_A')
+        .click(selectors.addListButton)
+        .typeText(selectors.listName, 'List_B')
+        .click(selectors.addListButton)
 
     //Now add a card in list
     await t
-        .click(addCardButton)
-        .expect(listTextArea.exists).ok()
-        .typeText(listTextArea, 'Test_Card_A')
-        .click(addCardConfirmButton) 
-        .expect(cardA.exists).ok()
+        .click(selectors.addCardButton)
+        .expect(selectors.listTextArea.exists).ok()
+        .typeText(selectors.listTextArea, 'Test_Card_A')
+        .click(selectors.addCardConfirmButton) 
+        .expect(selectors.cardA.exists).ok()
 
     //Now drag and drop
     await t
-        .dragToElement(cardA,listB)
+        .dragToElement(selectors.cardA,selectors.listB)
+
+    //Logout
+    await t
+        .expect(selectors.profileButton.exists).ok()
+        .click(selectors.profileButton)
+        
+        .expect(selectors.logoutButton.exists).ok()
+        .click(selectors.logoutButton)
+        
+        .expect(selectors.logoutFinalButton.exists).ok()
+        .click(selectors.logoutFinalButton)
 }).skipJsErrors();

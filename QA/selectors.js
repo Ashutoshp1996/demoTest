@@ -1,13 +1,13 @@
 import {Selector} from 'testcafe'
 
 export default{
-      userName  : Selector('#user'),
+      userNameField  : Selector('#user'),
       continueButton  : Selector('#login'),
-      password  : Selector('#password'),
+      passwordField  : Selector('#password'),
       loginButton  : Selector('#login-submit'),
     
     //Board related
-      addButton  : Selector('[data-testid :"header-create-menu-button"]') ,
+      addButton  : Selector('button').withAttribute('data-testid','header-create-menu-button') ,
       addBoardButton  : Selector('button').withAttribute('data-testid','header-create-board-button') ,
       boardTitle  : Selector('input').withAttribute('data-testid','create-board-title-input'),
       createButton  : Selector('button').withAttribute('data-testid','create-board-submit-button'),
@@ -26,5 +26,12 @@ export default{
     //Drag item
       cardA  : Selector('.list-card-title').withText('Test_Card_A'),//For list A
     //  cardA  : Selector('//*[@id :"board"]/div[1]/div/div[2]/a/div[3]'),
-      listB : Selector('.list-header').withText('List_B')//list B
+      listB : Selector('.list-header').withText('List_B'),//list B
+
+    //Logout
+    
+    profileButton : Selector('button').withAttribute('data-testid','header-member-menu-button'),
+    logoutButton : Selector('button').withAttribute('data-testid','account-menu-logout'),
+    logoutFinalButton : Selector('button').withAttribute('data-testid','logout-button')
+
 }
