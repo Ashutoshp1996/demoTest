@@ -1,7 +1,7 @@
 # demoTest
 Test trello app
 
-1. Install nodeJS and install
+1. Download nodeJS and install
 2. Run following commands
   i. node --version
   ii. npm --version
