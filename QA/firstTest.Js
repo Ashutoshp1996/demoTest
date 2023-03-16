@@ -2,8 +2,8 @@ import { Selector } from 'testcafe';
 import selectors from './selectors'
 
 //Add username and password
-const user = 'ashutosh3120@gmail.com'
-const password = 'Ashu12345'
+const user = 'test@user'
+const password = 'test@password'
 
 fixture('Getting Started')
     .page('https://trello.com/login');
